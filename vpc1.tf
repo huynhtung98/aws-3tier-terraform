@@ -22,7 +22,6 @@ resource "aws_subnet" "eh01_sub_ezweb" {
 
 # Allocate Elastic IP for NAT Gateway
 resource "aws_eip" "eh01_nat_eip" {
-  vpc = true
 
   tags = {
     Name = "eh01-nat-eip"

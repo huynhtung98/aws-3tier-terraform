@@ -12,14 +12,6 @@ resource "aws_security_group" "eh01-sg-ezalb" {
         cidr_blocks = ["0.0.0.0/0"]
   }
 
-    ingress {
-        description = "HTTPs from VPC"
-        from_port   = 443
-        to_port     = 443
-        protocol    = "tcp"
-        cidr_blocks = ["0.0.0.0/0"]
-  }
-
     egress {
     from_port   = 0
     to_port     = 0
@@ -46,14 +38,6 @@ resource "aws_security_group" "eh01-sg-ezweb" {
         security_groups = [aws_security_group.eh01-sg-ezalb.id]
   }
 
-
-    ingress {
-        description = "HTTP from VPC"
-        from_port   = 443
-        to_port     = 443
-        protocol    = "tcp"
-        security_groups = [aws_security_group.eh01-sg-ezalb.id]
-  }
 
     egress {
     from_port   = 8080
